@@ -51,4 +51,4 @@ python txt_mcp.py
 MIT License. See [LICENSE](LICENSE) for details.
 
 ---
-*Made with ❤️ for the Claude and MCP community.*
+*Made with ❤️ by kilgor for the Claude and MCP community.*
