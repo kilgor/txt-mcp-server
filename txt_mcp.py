@@ -44,6 +44,16 @@ async def edit_text(file_path: str, search: str, replace: str) -> str:
         # Return the error message if editing fails
         return f"Error editing file: {e}"
 
-# Entry point to run the MCP server over stdio (Claude Desktop compatible)
+# Entry point with selectable transports (matching provided screenshot)
 if __name__ == "__main__":
-    mcp.run_stdio()
+    # Start the MCP server without specifying a transport (defaults to WebSocket)
+    mcp.run()
+
+    # Access the MCP via the stdio protocol
+    # mcp.run(transport="stdio")
+
+    # Access the MCP via the SSE protocol thourgh <<server_url>>/sse
+    # mcp.run(transport="sse")
+
+    # Access the MCP via the Streamable HTTP protocol thourgh <<server_url>>/streamable-http
+    #mcp.run(transport="streamable-http")
