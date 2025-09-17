@@ -3,8 +3,27 @@
 # Import the FastMCP class from the fastmcp module
 from mcp.server.fastmcp import FastMCP
 
+# Prompt that asks for confirmation before proceeding
+from mcp.server.fastmcp.prompts import base
+
 # Initialize the FastMCP server with the name 'txt-mcp'
 mcp = FastMCP("txt-mcp")
+
+
+@mcp.prompt(title="Confirmation Before Action")
+def confirm_action(action_description: str = "an operation") -> list[base.Message]:
+    """
+    Before you initiate order from user, explain what you will do and ask for confirmation and if user confirms, proceed process, if user does not confirms wait for further information
+    """
+    return [
+        base.UserMessage(f"You are about to: {action_description}"),
+        base.AssistantMessage(
+            "Before I begin, please confirm: Should I proceed with this action?\n"
+            "If you confirm, I will continue. If not, I will wait for further instructions."
+        ),
+    ]
+
+
 
 # Tool to read a UTF-8 encoded text file
 @mcp.tool()
@@ -48,12 +67,3 @@ async def edit_text(file_path: str, search: str, replace: str) -> str:
 if __name__ == "__main__":
     # Start the MCP server without specifying a transport (defaults to WebSocket)
     mcp.run()
-
-    # Access the MCP via the stdio protocol
-    # mcp.run(transport="stdio")
-
-    # Access the MCP via the SSE protocol thourgh <<server_url>>/sse
-    # mcp.run(transport="sse")
-
-    # Access the MCP via the Streamable HTTP protocol thourgh <<server_url>>/streamable-http
-    #mcp.run(transport="streamable-http")
