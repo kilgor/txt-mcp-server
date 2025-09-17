@@ -1,0 +1,40 @@
+{
+  "name": "kilgor-txt-mcp",
+  "version": "1.0.0",
+  "description": "MCP that allows LLM to read write and edit files which can be opened by win-notepad. (txt editor)",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kilgor/txt-mcp-server.git"
+  },
+  "keywords": [
+    "MCP",
+    "FastMCP",
+    "txt-mcp",
+    "Claude Desktop",
+    "text file editor",
+    "Python",
+    "file read",
+    "file write",
+    "file edit",
+    "search and replace",
+    "LLM tools",
+    "UTF-8",
+    "automation",
+    "prompt confirmation",
+    "Model Context Protocol",
+    "server",
+    "API",
+    "file management",
+    "open source"
+  ],
+  "author": "kilgor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kilgor/txt-mcp-server/issues"
+  },
+  "homepage": "https://github.com/kilgor/txt-mcp-server#readme"
+}
